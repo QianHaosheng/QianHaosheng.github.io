@@ -1,39 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Blog</title>
   <icon>http://example.com/icon.png</icon>
   
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-02-08T03:55:29.231Z</updated>
+  <updated>2023-02-23T17:53:34.379Z</updated>
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Qian Haosheng</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2023/02/08/hello-world/"/>
-    <id>http://example.com/2023/02/08/hello-world/</id>
-    <published>2023-02-08T03:38:57.320Z</published>
-    <updated>2023-02-08T03:55:29.231Z</updated>
+    <title>李宏毅机器学习 HW1</title>
+    <link href="http://example.com/2023/02/24/lhy_ml2022hw1/"/>
+    <id>http://example.com/2023/02/24/lhy_ml2022hw1/</id>
+    <published>2023-02-23T16:00:00.000Z</published>
+    <updated>2023-02-23T17:53:34.379Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;p&gt;修改网络结构，增加层数、Batch Normalization和Dropout
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
         
       
     
     
     
+    <category term="实验" scheme="http://example.com/categories/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="PyTorch" scheme="http://example.com/tags/PyTorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PyTorch基本操作</title>
+    <link href="http://example.com/2023/02/22/pytorch_basic/"/>
+    <id>http://example.com/2023/02/22/pytorch_basic/</id>
+    <published>2023-02-22T12:00:00.000Z</published>
+    <updated>2023-02-23T15:57:52.217Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;什么是pytorch&quot;&gt;什么是PyTorch&lt;/h3&gt;
+&lt;p&gt;一种深度学习框架&lt;/p&gt;
+&lt;p&gt;优势&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在GPU上进行tensor的计算&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;自动计算梯度&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="PyTorch" scheme="http://example.com/tags/PyTorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>李宏毅机器学习 Lecture 1:Introduction of Deep Learning</title>
+    <link href="http://example.com/2023/02/20/lhy_ml2022lec1/"/>
+    <id>http://example.com/2023/02/20/lhy_ml2022lec1/</id>
+    <published>2023-02-20T08:00:00.000Z</published>
+    <updated>2023-02-23T17:08:02.084Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;基本概念&quot;&gt;基本概念&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;什么是机器学习machine learning&lt;/p&gt;
+&lt;p&gt;机器自动找一个函数function&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;深度学习deep</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   

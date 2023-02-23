@@ -11,7 +11,7 @@
   
   <title>
     
-      Category 
+      李宏毅机器学习 Lecture 1:Introduction of Deep Learning 
       
       
       |
@@ -147,19 +147,194 @@
 
 
   
-  <!-- 分类页 url形式：https://yoursite/categories/ -->
-  <div class="container category-index">
-    <div>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E9%AA%8C/">实验</a><span class="category-list-count">1</span></li></ul>
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">李宏毅机器学习 Lecture 1:Introduction of Deep Learning</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2023-02-20 16:00:00
+        </span>
+        
+              <span class="post-categories">
+                <i class="iconfont icon-bookmark" title="Categories"></i>
+                
+                <span class="span--category">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" title="笔记">
+                    <b>#</b> 笔记
+                  </a>
+                </span>
+                
+              </span>
+          
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习">
+                    #深度学习
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h3 id="基本概念">基本概念</h3>
+<ul>
+<li><p>什么是机器学习machine learning</p>
+<p>机器自动找一个函数function</p></li>
+<li><p>深度学习deep learning</p>
+<p>类神经网络neural network</p></li>
+<li><p>输入</p>
+<p>向量vector、矩阵matrix、序列sequence</p></li>
+<li><p>输出</p>
+<p>数字（回归regression）、类别（分类classification）、文本text/图片image</p></li>
+</ul>
+<h3 id="课程内容">课程内容</h3>
+<ul>
+<li><p>Lec1-5 监督学习supervised learning</p>
+<p>训练数据有标注label</p></li>
+<li><p>Lec6 生成对抗网络generative adversarial network</p>
+<p>输入输出不需要成对，机器自动寻找关联</p></li>
+<li><p>Lec7 自监督学习self-supervised learning</p>
+<p>预训练pre-train（数据无标注）</p>
+<p>下游任务downstream task 微调fine-tune</p></li>
+<li><p>Lec8 异常检测anomaly detection</p></li>
+<li><p>Lec9 可解释AI explainable AI</p></li>
+<li><p>Lec10 模型攻击model attack</p></li>
+<li><p>Lec11 领域自适应domain adapation</p></li>
+<li><p>Lec12 强化学习reinforcement learning</p>
+<p>不知道如何标注数据，但可以判断好坏</p></li>
+<li><p>Lec13 模型压缩network compression</p></li>
+<li><p>Lec14 终身学习life-long learning</p></li>
+<li><p>Lec15 元学习meta learning</p>
+<p>学习如何学习 few-shot learning 用非常少量的标注资料学习</p></li>
+</ul>
+<h3 id="以线性回归为例">以线性回归为例</h3>
+<ul>
+<li><p>模型Model</p>
+<p><span class="math display">\[y=wx+b\]</span></p></li>
+<li><p>损失函数Loss</p>
+<p><span class="math display">\[L(b,w)=\frac{1}{n}\sum_{i=1}^{n}
+|y_{i}-\hat{y}_{i}|\]</span></p>
+<p>常用损失</p>
+<p>MAE(mean absolute error)</p>
+<p>MSE(mean square error)</p>
+<p>Cross-entropy</p></li>
+<li><p>优化Optimization</p>
+<p><span class="math display">\[w^{*},b^{*}=\arg\min_{w,b}
+L\]</span></p>
+<p>梯度下降gradient descent</p>
+<ul>
+<li><p>（随机）初始化参数<span
+class="math inline">\(w^{0},b^{0}\)</span></p></li>
+<li><p>计算<span class="math inline">\(\frac{\partial L}{\partial
+w}|_{w=w^{0}}\)</span>，<span class="math inline">\(\frac{\partial
+L}{\partial b}|_{b=b^{0}}\)</span></p></li>
+<li><p>更新<span class="math inline">\(w^{1} \leftarrow w^{0} - \eta
+\frac{\partial L}{\partial w}|_{w=w^{0}}\)</span>，<span
+class="math inline">\(b^{1} \leftarrow b^{0} - \eta \frac{\partial
+L}{\partial b}|_{b=b^{0}}\)</span></p></li>
+<li><p>不断重复以上操作更新<span
+class="math inline">\(w,b\)</span></p></li>
+</ul>
+<p>学习率learning rate</p>
+<p>超参数hyperparameter 需要自己设定</p>
+<p>梯度下降存在陷入局部最优问题，但事实上影响不大</p></li>
+</ul>
+<h3 id="神经网络">神经网络</h3>
+<p>任意Piecewise Linear曲线都可以看成一个常数和若干Hard
+Sigmoid函数的组合</p>
+<p>亦可以用Sigmoid函数或ReLU函数拟合任意函数（常用的激活函数：Sigmoid、ReLU）</p>
+<p>往上堆叠层数（hidden layer），构成神经网络</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2023-02-20 16:00:00
+            </span>
+            
+                  <span class="post-categories">
+                    <i class="iconfont icon-bookmark" title="Categories"></i>
+                    
+                    <span class="span--category">
+                      <a href="/categories/%E7%AC%94%E8%AE%B0/" title="笔记">
+                        <b>#</b> 笔记
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习">
+                        #深度学习
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2023/02/22/pytorch_basic/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A5%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%BA%E4%BE%8B"><span class="toc-text">以线性回归为例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">神经网络</span></a></li></ol>
+      
     </div>
   </div>
-  
 
   
+<script src="/js/catalog.js"></script>
 
-  
 
-  
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
 
         
 <div class="footer">
@@ -421,12 +596,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + categories + '&url=' + http%3A%2F%2Fexample.com%2Fcategories%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20Lecture%201%3AIntroduction%20of%20Deep%20Learning + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F02%2F20%2Flhy_ml2022lec1%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/categories/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/02/20/lhy_ml2022lec1/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
