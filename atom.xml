@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-02-23T18:12:57.758Z</updated>
+  <updated>2023-03-01T19:37:26.685Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>李宏毅机器学习 Lecture 2:What to do if my network fails to train</title>
+    <link href="http://example.com/2023/03/02/lhy_ml2022lec2/"/>
+    <id>http://example.com/2023/03/02/lhy_ml2022lec2/</id>
+    <published>2023-03-01T18:30:00.000Z</published>
+    <updated>2023-03-01T19:37:26.685Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;训练模型一般流程&quot;&gt;训练模型一般流程&lt;/h3&gt;
+&lt;p&gt;先检查训练集loss&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;训练集loss大，2种可能
+&lt;ul&gt;
+&lt;li&gt;模型偏差model</summary>
+        
+      
+    
+    
+    
+    <category term="笔记" scheme="http://example.com/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>李宏毅机器学习 HW1</title>
@@ -83,7 +113,7 @@
     <link href="http://example.com/2023/02/20/lhy_ml2022lec1/"/>
     <id>http://example.com/2023/02/20/lhy_ml2022lec1/</id>
     <published>2023-02-20T08:00:00.000Z</published>
-    <updated>2023-02-23T17:08:02.084Z</updated>
+    <updated>2023-03-01T18:39:09.211Z</updated>
     
     
       

@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>李宏毅机器学习 Lecture 2:What to do if my network fails to train</title>
+      <link href="/2023/03/02/lhy_ml2022lec2/"/>
+      <url>/2023/03/02/lhy_ml2022lec2/</url>
+      
+        <content type="html"><![CDATA[<h3 id="训练模型一般流程">训练模型一般流程</h3><p>先检查训练集loss</p><ul><li>训练集loss大，2种可能<ul><li>模型偏差model bias大，增加模型复杂度</li><li>optimization没做好（可能发生简化的模型比原模型效果好）</li></ul></li><li>训练集loss小，检查测试集loss<ul><li>测试集loss大，2种可能<ul><li>过拟合overfitting</li><li>数据集分布不同mismatch</li></ul></li><li>测试集loss小（期望结果）</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>李宏毅机器学习 HW1</title>
       <link href="/2023/02/24/lhy_ml2022hw1/"/>
       <url>/2023/02/24/lhy_ml2022hw1/</url>
@@ -62,7 +87,7 @@
       <link href="/2023/02/20/lhy_ml2022lec1/"/>
       <url>/2023/02/20/lhy_ml2022lec1/</url>
       
-        <content type="html"><![CDATA[<h3 id="基本概念">基本概念</h3><ul><li><p>什么是机器学习machine learning</p><p>机器自动找一个函数function</p></li><li><p>深度学习deep learning</p><p>类神经网络neural network</p></li><li><p>输入</p><p>向量vector、矩阵matrix、序列sequence</p></li><li><p>输出</p><p>数字（回归regression）、类别（分类classification）、文本text/图片image</p></li></ul><h3 id="课程内容">课程内容</h3><ul><li><p>Lec1-5 监督学习supervised learning</p><p>训练数据有标注label</p></li><li><p>Lec6 生成对抗网络generative adversarial network</p><p>输入输出不需要成对，机器自动寻找关联</p></li><li><p>Lec7 自监督学习self-supervised learning</p><p>预训练pre-train（数据无标注）</p><p>下游任务downstream task 微调fine-tune</p></li><li><p>Lec8 异常检测anomaly detection</p></li><li><p>Lec9 可解释AI explainable AI</p></li><li><p>Lec10 模型攻击model attack</p></li><li><p>Lec11 领域自适应domain adapation</p></li><li><p>Lec12 强化学习reinforcement learning</p><p>不知道如何标注数据，但可以判断好坏</p></li><li><p>Lec13 模型压缩network compression</p></li><li><p>Lec14 终身学习life-long learning</p></li><li><p>Lec15 元学习meta learning</p><p>学习如何学习 few-shot learning 用非常少量的标注资料学习</p></li></ul><h3 id="以线性回归为例">以线性回归为例</h3><ul><li><p>模型Model</p><p><span class="math display">\[y=wx+b\]</span></p></li><li><p>损失函数Loss</p><p><span class="math display">\[L(b,w)=\frac{1}{n}\sum_{i=1}^{n}|y_{i}-\hat{y}_{i}|\]</span></p><p>常用损失</p><p>MAE(mean absolute error)</p><p>MSE(mean square error)</p><p>Cross-entropy</p></li><li><p>优化Optimization</p><p><span class="math display">\[w^{*},b^{*}=\arg\min_{w,b}L\]</span></p><p>梯度下降gradient descent</p><ul><li><p>（随机）初始化参数<spanclass="math inline">\(w^{0},b^{0}\)</span></p></li><li><p>计算<span class="math inline">\(\frac{\partial L}{\partialw}|_{w=w^{0}}\)</span>，<span class="math inline">\(\frac{\partialL}{\partial b}|_{b=b^{0}}\)</span></p></li><li><p>更新<span class="math inline">\(w^{1} \leftarrow w^{0} - \eta\frac{\partial L}{\partial w}|_{w=w^{0}}\)</span>，<spanclass="math inline">\(b^{1} \leftarrow b^{0} - \eta \frac{\partialL}{\partial b}|_{b=b^{0}}\)</span></p></li><li><p>不断重复以上操作更新<spanclass="math inline">\(w,b\)</span></p></li></ul><p>学习率learning rate</p><p>超参数hyperparameter 需要自己设定</p><p>梯度下降存在陷入局部最优问题，但事实上影响不大</p></li></ul><h3 id="神经网络">神经网络</h3><p>任意Piecewise Linear曲线都可以看成一个常数和若干HardSigmoid函数的组合</p><p>亦可以用Sigmoid函数或ReLU函数拟合任意函数（常用的激活函数：Sigmoid、ReLU）</p><p>往上堆叠层数（hidden layer），构成神经网络</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="基本概念">基本概念</h3><ul><li><p>什么是机器学习machine learning</p><p>机器自动找一个函数function</p></li><li><p>深度学习deep learning</p><p>类神经网络neural network</p></li><li><p>输入</p><p>向量vector、矩阵matrix、序列sequence</p></li><li><p>输出</p><p>数字（回归regression）、类别（分类classification）、文本text/图片image</p></li></ul><h3 id="课程内容">课程内容</h3><ul><li><p>Lec1-5 监督学习supervised learning</p><p>训练数据有标注label</p></li><li><p>Lec6 生成对抗网络generative adversarial network</p><p>输入输出不需要成对，机器自动寻找关联</p></li><li><p>Lec7 自监督学习self-supervised learning</p><p>预训练pre-train（数据无标注）</p><p>下游任务downstream task 微调fine-tune</p></li><li><p>Lec8 异常检测anomaly detection</p></li><li><p>Lec9 可解释AI explainable AI</p></li><li><p>Lec10 模型攻击model attack</p></li><li><p>Lec11 领域自适应domain adapation</p></li><li><p>Lec12 强化学习reinforcement learning</p><p>不知道如何标注数据，但可以判断好坏</p></li><li><p>Lec13 模型压缩network compression</p></li><li><p>Lec14 终身学习life-long learning</p></li><li><p>Lec15 元学习meta learning</p><p>学习如何学习 few-shot learning 用非常少量的标注资料学习</p></li></ul><h3 id="以线性回归为例">以线性回归为例</h3><ul><li><p>模型Model</p><p><span class="math display">\[y=wx+b\]</span></p></li><li><p>损失函数Loss</p><p><span class="math display">\[L(b,w)=\frac{1}{n}\sum_{i=1}^{n}|y_{i}-\hat{y}_{i}|\]</span></p><p>常用损失</p><p>MAE(mean absolute error)</p><p>MSE(mean square error)</p><p>Cross-entropy</p></li><li><p>优化Optimization</p><p><span class="math display">\[w^{*},b^{*}=\arg\min_{w,b}L\]</span></p><p>梯度下降gradient descent</p><ul><li><p>（随机）初始化参数<spanclass="math inline">\(w^{0},b^{0}\)</span></p></li><li><p>计算<span class="math inline">\(\frac{\partial L}{\partialw}|_{w=w^{0}}\)</span>，<span class="math inline">\(\frac{\partialL}{\partial b}|_{b=b^{0}}\)</span></p></li><li><p>更新<span class="math inline">\(w^{1} \leftarrow w^{0} - \eta\frac{\partial L}{\partial w}|_{w=w^{0}}\)</span>，<spanclass="math inline">\(b^{1} \leftarrow b^{0} - \eta \frac{\partialL}{\partial b}|_{b=b^{0}}\)</span></p></li><li><p>不断重复以上操作更新<spanclass="math inline">\(w,b\)</span></p></li></ul><p>学习率learning rate</p><p>超参数hyperparameter 需要自己设定</p><p>梯度下降存在陷入局部最优问题，但事实上影响不大</p></li></ul><h3 id="神经网络">神经网络</h3><p>任意Piecewise Linear曲线都可以看成一个常数和若干HardSigmoid函数的组合</p><p>亦可以用Sigmoid函数或ReLU函数拟合任意函数（常用的激活函数：Sigmoid、ReLU）</p><p>往上堆叠层数（hidden layer），构成神经网络</p><p>反向传播backpropagation使用链式求导的思想高效率计算梯度下降</p><p>正则化regularization使模型更加平滑，减少数据偏差带来的影响</p>]]></content>
       
       
       <categories>
