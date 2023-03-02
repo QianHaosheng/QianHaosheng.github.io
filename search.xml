@@ -8,10 +8,12 @@
       <link href="/2023/03/02/lhy_ml2022lec2/"/>
       <url>/2023/03/02/lhy_ml2022lec2/</url>
       
-        <content type="html"><![CDATA[<h3 id="训练模型一般流程">训练模型一般流程</h3><p>先检查训练集loss</p><ul><li>训练集loss大，2种可能<ul><li>模型偏差model bias大，增加模型复杂度</li><li>optimization没做好（可能发生简化的模型比原模型效果好）</li></ul></li><li>训练集loss小，检查测试集loss<ul><li>测试集loss大，2种可能<ul><li>过拟合overfitting</li><li>数据集分布不同mismatch</li></ul></li><li>测试集loss小（期望结果）</li></ul></li></ul>]]></content>
+        <content type="html"><![CDATA[<h3 id="训练模型一般流程">训练模型一般流程</h3><p>先检查训练集loss</p><ul><li>训练集loss大，2种可能<ul><li>模型偏差model bias大，增加模型复杂性</li><li>optimization没做好（可能发生简化的模型比原模型效果好）</li></ul></li><li>训练集loss小，检查测试集loss<ul><li>测试集loss大，2种可能<ul><li><p>过拟合overfitting</p><p>增加训练数据，或数据增强data augmentation（左右翻转、截取图片等）</p><p>增加模型限制，减少模型复杂性（更少的参数parameter，更少的特征feature，提前终止earlystopping，正则化regularization，dropout）</p></li><li><p>训练集和测试集不同分布mismatch</p></li></ul></li><li>测试集loss小（期望结果）</li></ul></li></ul><h3 id="临界点">临界点</h3><p>临界点critical point：局部最低/高local min/max 鞍点saddle point</p><p>泰勒级数近似Taylor Series Approximation</p><p>用附近的<span class="math inline">\(\theta&#39;\)</span>近似表示<spanclass="math inline">\(L(\theta) \approxL(\theta&#39;)+(\theta-\theta&#39;)^{T}g+\frac{1}{2}(\theta-\theta&#39;)^{T}H(\theta-\theta&#39;)\)</span></p><p><span class="math inline">\(g\)</span>表示梯度是个向量，<spanclass="math inline">\(g=\nabla L(\theta&#39;)\)</span> <spanclass="math inline">\(g_{i}=\frac{\partial L(\theta&#39;)}{\partial\theta_{i}}\)</span></p><p><span class="math inline">\(H\)</span>表示Hessian矩阵，<spanclass="math inline">\(H_{ij}=\frac{\partial^{2}}{\partial\theta_{i}\partial\theta_{j}}L(\theta&#39;)\)</span></p><p>在临界点梯度为0，上式中第二项为0，</p><p>对于所有的<span class="math inline">\(v\)</span>，满足<spanclass="math inline">\(v^{T}Hv&gt;0\)</span>，说明<spanclass="math inline">\(L(\theta)&gt;L(\theta&#39;)\)</span>，该点为局部最低（等价于<spanclass="math inline">\(H\)</span>是正定positivedefinite的，所有特征值eigen value为正）</p><p>对于所有的<span class="math inline">\(v\)</span>，满足<spanclass="math inline">\(v^{T}Hv&lt;0\)</span>，说明<spanclass="math inline">\(L(\theta)&lt;L(\theta&#39;)\)</span>，该点为局部最高（等价于<spanclass="math inline">\(H\)</span>是负定negativedefinite的，所有特征值为负）</p><p>部分<span class="math inline">\(v^{T}Hv&gt;0\)</span>，部分<spanclass="math inline">\(v^{T}Hv&lt;0\)</span>，该点为鞍点（特征值有正有负，沿着负特征值的特征向量eigenvector的方向更新参数可以继续降低loss）</p><p>实际操作中，因为参数量巨大，在高维空间中很少会有局部最低点</p><h3 id="batch">batch</h3><p>一个epoch划分多个batch，每个batch单独计算loss更新参数</p><p>一次update的速度，没有并行运算情况下小batch更快，有并行运算情况下小batch和大batch（不能太大）接近</p><p>一个epoch的速度，大batch更快</p><p>大batch的梯度更稳定，小batch梯度含噪声</p><p>理论上小batch在optimization时更优</p><h3 id="momentum">momentum</h3><p>动量momentum（考虑之前移动的方向）</p><p>从<span class="math inline">\(\theta^0\)</span>开始</p><p>移动<span class="math inline">\(m^0=0\)</span></p><p>计算梯度<span class="math inline">\(g^0\)</span></p><p>移动<span class="math inline">\(m^1=\lambda m^0-\eta g^0\)</span></p><p>更新参数<spanclass="math inline">\(\theta^1=\theta^0+m^1\)</span></p><p>计算梯度<span class="math inline">\(g^1\)</span></p><p>移动<span class="math inline">\(m^2=\lambda m^1-\eta g^1\)</span></p><p>更新参数<spanclass="math inline">\(\theta^2=\theta^1+m^2\)</span></p><p>依此类推</p><h3 id="adaptive-learning-rate">adaptive learning rate</h3><p>loss变化小不一定说明梯度很小</p>]]></content>
       
       
       <categories>
+          
+          <category> 李宏毅机器学习 </category>
           
           <category> 笔记 </category>
           
@@ -37,6 +39,8 @@
       
       
       <categories>
+          
+          <category> 李宏毅机器学习 </category>
           
           <category> 实验 </category>
           
@@ -65,6 +69,8 @@
       
       <categories>
           
+          <category> 李宏毅机器学习 </category>
+          
           <category> 笔记 </category>
           
       </categories>
@@ -91,6 +97,8 @@
       
       
       <categories>
+          
+          <category> 李宏毅机器学习 </category>
           
           <category> 笔记 </category>
           

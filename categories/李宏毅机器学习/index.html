@@ -11,9 +11,9 @@
   
   <title>
     
-      李宏毅机器学习 Lecture 2:What to do if my network fails to train 
+      Category 
       
-      
+       : 李宏毅机器学习
       |
     
      Blog
@@ -111,243 +111,57 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
 
-
-  <!-- LaTex Display -->
-
+<div class="container category-details">
+  <div class="content-title">
+    <h2>
+      <span>李宏毅机器学习</span>
+    </h2>
+  </div>
   
-    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
-  
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
-    }
-  </script>
-
-
-
-
-
-  <!-- clipboard -->
-
-  
-    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">李宏毅机器学习 Lecture 2:What to do if my network fails to train</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2023-03-02 02:30:00
-        </span>
-        
-              <span class="post-categories">
-                <i class="iconfont icon-bookmark" title="Categories"></i>
-                
-                <span class="span--category">
-                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="李宏毅机器学习">
-                    <b>#</b> 李宏毅机器学习
-                  </a>
-                </span>
-                
-                <span class="span--category">
-                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
-                    <b>#</b> 笔记
-                  </a>
-                </span>
-                
-              </span>
-          
-              <span class="post-tags">
-                <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习">
-                    #深度学习
-                  </a>
-                </span>
-                
-              </span>
-          
+    <div class="post-list">
+      <div class="post-item" title="李宏毅机器学习 Lecture 2:What to do if my network fails to train">
+        <span class="time-m-d">2023-03-02</span>
+        <a href="/2023/03/02/lhy_ml2022lec2/">
+          <span>李宏毅机器学习 Lecture 2:What to do if my network fails to train</span>
+        </a>
       </div>
-      <div class="markdown-body">
-        <h3 id="训练模型一般流程">训练模型一般流程</h3>
-<p>先检查训练集loss</p>
-<ul>
-<li>训练集loss大，2种可能
-<ul>
-<li>模型偏差model bias大，增加模型复杂性</li>
-<li>optimization没做好（可能发生简化的模型比原模型效果好）</li>
-</ul></li>
-<li>训练集loss小，检查测试集loss
-<ul>
-<li>测试集loss大，2种可能
-<ul>
-<li><p>过拟合overfitting</p>
-<p>增加训练数据，或数据增强data augmentation（左右翻转、截取图片等）</p>
-<p>增加模型限制，减少模型复杂性（更少的参数parameter，更少的特征feature，提前终止early
-stopping，正则化regularization，dropout）</p></li>
-<li><p>训练集和测试集不同分布mismatch</p></li>
-</ul></li>
-<li>测试集loss小（期望结果）</li>
-</ul></li>
-</ul>
-<h3 id="临界点">临界点</h3>
-<p>临界点critical point：局部最低/高local min/max 鞍点saddle point</p>
-<p>泰勒级数近似Taylor Series Approximation</p>
-<p>用附近的<span class="math inline">\(\theta&#39;\)</span>近似表示<span
-class="math inline">\(L(\theta) \approx
-L(\theta&#39;)+(\theta-\theta&#39;)^{T}g+\frac{1}{2}(\theta-\theta&#39;)^{T}H(\theta-\theta&#39;)\)</span></p>
-<p><span class="math inline">\(g\)</span>表示梯度是个向量，<span
-class="math inline">\(g=\nabla L(\theta&#39;)\)</span> <span
-class="math inline">\(g_{i}=\frac{\partial L(\theta&#39;)}{\partial
-\theta_{i}}\)</span></p>
-<p><span class="math inline">\(H\)</span>表示Hessian矩阵，<span
-class="math inline">\(H_{ij}=\frac{\partial^{2}}{\partial\theta_{i}\partial\theta_{j}}L(\theta&#39;)\)</span></p>
-<p>在临界点梯度为0，上式中第二项为0，</p>
-<p>对于所有的<span class="math inline">\(v\)</span>，满足<span
-class="math inline">\(v^{T}Hv&gt;0\)</span>，说明<span
-class="math inline">\(L(\theta)&gt;L(\theta&#39;)\)</span>，该点为局部最低（等价于<span
-class="math inline">\(H\)</span>是正定positive
-definite的，所有特征值eigen value为正）</p>
-<p>对于所有的<span class="math inline">\(v\)</span>，满足<span
-class="math inline">\(v^{T}Hv&lt;0\)</span>，说明<span
-class="math inline">\(L(\theta)&lt;L(\theta&#39;)\)</span>，该点为局部最高（等价于<span
-class="math inline">\(H\)</span>是负定negative
-definite的，所有特征值为负）</p>
-<p>部分<span class="math inline">\(v^{T}Hv&gt;0\)</span>，部分<span
-class="math inline">\(v^{T}Hv&lt;0\)</span>，该点为鞍点（特征值有正有负，沿着负特征值的特征向量eigen
-vector的方向更新参数可以继续降低loss）</p>
-<p>实际操作中，因为参数量巨大，在高维空间中很少会有局部最低点</p>
-<h3 id="batch">batch</h3>
-<p>一个epoch划分多个batch，每个batch单独计算loss更新参数</p>
-<p>一次update的速度，没有并行运算情况下小batch更快，有并行运算情况下小batch和大batch（不能太大）接近</p>
-<p>一个epoch的速度，大batch更快</p>
-<p>大batch的梯度更稳定，小batch梯度含噪声</p>
-<p>理论上小batch在optimization时更优</p>
-<h3 id="momentum">momentum</h3>
-<p>动量momentum（考虑之前移动的方向）</p>
-<p>从<span class="math inline">\(\theta^0\)</span>开始</p>
-<p>移动<span class="math inline">\(m^0=0\)</span></p>
-<p>计算梯度<span class="math inline">\(g^0\)</span></p>
-<p>移动<span class="math inline">\(m^1=\lambda m^0-\eta g^0\)</span></p>
-<p>更新参数<span
-class="math inline">\(\theta^1=\theta^0+m^1\)</span></p>
-<p>计算梯度<span class="math inline">\(g^1\)</span></p>
-<p>移动<span class="math inline">\(m^2=\lambda m^1-\eta g^1\)</span></p>
-<p>更新参数<span
-class="math inline">\(\theta^2=\theta^1+m^2\)</span></p>
-<p>依此类推</p>
-<h3 id="adaptive-learning-rate">adaptive learning rate</h3>
-<p>loss变化小不一定说明梯度很小</p>
-
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-              <a href="/2023/02/24/lhy_ml2022hw1/" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>Prev</span>
-              </a>
-            
-          </div>
-          <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2023-03-02 02:30:00
-            </span>
-            
-                  <span class="post-categories">
-                    <i class="iconfont icon-bookmark" title="Categories"></i>
-                    
-                    <span class="span--category">
-                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="李宏毅机器学习">
-                        <b>#</b> 李宏毅机器学习
-                      </a>
-                    </span>
-                    
-                    <span class="span--category">
-                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
-                        <b>#</b> 笔记
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" title="深度学习">
-                        #深度学习
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-          </div>
-          <div class="post-foot-prev">
-            
-          </div>
-        </div>
-      
     </div>
-    
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B"><span class="toc-text">训练模型一般流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B4%E7%95%8C%E7%82%B9"><span class="toc-text">临界点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#batch"><span class="toc-text">batch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#momentum"><span class="toc-text">momentum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adaptive-learning-rate"><span class="toc-text">adaptive learning rate</span></a></li></ol>
-      
-    </div>
-  </div>
-
   
-<script src="/js/catalog.js"></script>
-
-
-
-
-    
-      <div class="comments-container">
-        
-
-
-
-
-
-
-
+    <div class="post-list">
+      <div class="post-item" title="李宏毅机器学习 HW1">
+        <span class="time-m-d">2023-02-24</span>
+        <a href="/2023/02/24/lhy_ml2022hw1/">
+          <span>李宏毅机器学习 HW1</span>
+        </a>
       </div>
+    </div>
+  
+    <div class="post-list">
+      <div class="post-item" title="PyTorch基本操作">
+        <span class="time-m-d">2023-02-22</span>
+        <a href="/2023/02/22/pytorch_basic/">
+          <span>PyTorch基本操作</span>
+        </a>
+      </div>
+    </div>
+  
+    <div class="post-list">
+      <div class="post-item" title="李宏毅机器学习 Lecture 1:Introduction of Deep Learning">
+        <span class="time-m-d">2023-02-20</span>
+        <a href="/2023/02/20/lhy_ml2022lec1/">
+          <span>李宏毅机器学习 Lecture 1:Introduction of Deep Learning</span>
+        </a>
+      </div>
+    </div>
+  
+  <nav class="post-navigation">
     
-  </div>
-
+    <span class="page-num">1 / 1</span>
+    
+  </nav>
+</div>
 
         
 <div class="footer">
@@ -602,24 +416,6 @@ class="math inline">\(\theta^2=\theta^1+m^2\)</span></p>
 
 
         
-  
-    <div class="share-icon tools-bar-item">
-      <a href="javascript: void(0)" id="share-icon">
-        <i class="iconfont iconshare"></i>
-      </a>
-      <div class="share-content hidden">
-        
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20Lecture%202%3AWhat%20to%20do%20if%20my%20network%20fails%20to%20train + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F03%2F02%2Flhy_ml2022lec2%2F + '" target="_blank" title="Twitter">
-            <i class="iconfont icon-twitter"></i>
-          </a>
-        
-        
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/03/02/lhy_ml2022lec2/" target="_blank" title="Facebook">
-            <i class="iconfont icon-facebooksquare"></i>
-          </a>
-        
-      </div>
-    </div>
   
   
 <script src="/js/shares.js"></script>
