@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-03-09T07:43:38.013Z</updated>
+  <updated>2023-03-09T19:55:13.845Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,16 @@
     <link href="http://example.com/2023/03/09/lhy_ml2022lec3/"/>
     <id>http://example.com/2023/03/09/lhy_ml2022lec3/</id>
     <published>2023-03-09T07:00:00.000Z</published>
-    <updated>2023-03-09T07:43:38.013Z</updated>
+    <updated>2023-03-09T19:55:13.845Z</updated>
     
     
       
       
         
         
-    <summary type="html">
-</summary>
+    <summary type="html">&lt;h3 id=&quot;convolutional-neural-network&quot;&gt;Convolutional Neural Network&lt;/h3&gt;
+&lt;p&gt;卷积神经网络 CNN 常用于影像的任务上&lt;/p&gt;
+&lt;p&gt;以image</summary>
         
       
     
@@ -140,7 +141,7 @@
     <link href="http://example.com/2023/02/22/pytorch_basic/"/>
     <id>http://example.com/2023/02/22/pytorch_basic/</id>
     <published>2023-02-22T12:00:00.000Z</published>
-    <updated>2023-03-02T08:29:31.730Z</updated>
+    <updated>2023-03-09T18:07:16.750Z</updated>
     
     
       
