@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-03-02T18:35:59.480Z</updated>
+  <updated>2023-03-09T07:43:38.013Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>李宏毅机器学习 Lecture 3:Image as input</title>
+    <link href="http://example.com/2023/03/09/lhy_ml2022lec3/"/>
+    <id>http://example.com/2023/03/09/lhy_ml2022lec3/</id>
+    <published>2023-03-09T07:00:00.000Z</published>
+    <updated>2023-03-09T07:43:38.013Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+</summary>
+        
+      
+    
+    
+    
+    <category term="李宏毅机器学习" scheme="http://example.com/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="笔记" scheme="http://example.com/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>李宏毅机器学习 HW2</title>
+    <link href="http://example.com/2023/03/03/lhy_ml2022hw2/"/>
+    <id>http://example.com/2023/03/03/lhy_ml2022hw2/</id>
+    <published>2023-03-02T18:30:00.000Z</published>
+    <updated>2023-03-06T09:44:17.619Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;通过Strong</summary>
+        
+      
+    
+    
+    
+    <category term="李宏毅机器学习" scheme="http://example.com/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="实验" scheme="http://example.com/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="PyTorch" scheme="http://example.com/tags/PyTorch/"/>
+    
+  </entry>
   
   <entry>
     <title>李宏毅机器学习 Lecture 2:What to do if my network fails to train</title>
@@ -53,7 +110,7 @@
     <link href="http://example.com/2023/02/24/lhy_ml2022hw1/"/>
     <id>http://example.com/2023/02/24/lhy_ml2022hw1/</id>
     <published>2023-02-23T16:00:00.000Z</published>
-    <updated>2023-03-02T08:29:25.536Z</updated>
+    <updated>2023-03-06T09:44:27.286Z</updated>
     
     
       

@@ -11,7 +11,7 @@
   
   <title>
     
-      李宏毅机器学习 HW1 
+      李宏毅机器学习 Lecture 3:Image as input 
       
       
       |
@@ -156,11 +156,11 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">李宏毅机器学习 HW1</div>
+      <div class="post-title">李宏毅机器学习 Lecture 3:Image as input</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2023-02-24 00:00:00
+          2023-03-09 15:00:00
         </span>
         
               <span class="post-categories">
@@ -173,8 +173,8 @@
                 </span>
                 
                 <span class="span--category">
-                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/" title="实验">
-                    <b>#</b> 实验
+                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
+                    <b>#</b> 笔记
                   </a>
                 </span>
                 
@@ -189,32 +189,18 @@
                   </a>
                 </span>
                 
-                <span class="span--tag mr-8">
-                  <a href="/tags/PyTorch/" title="PyTorch">
-                    #PyTorch
-                  </a>
-                </span>
-                
               </span>
           
       </div>
       <div class="markdown-body">
-        <p>修改网络结构，增加层数、Batch Normalization和Dropout
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">My_Model</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_dim</span>):</span><br><span class="line">        <span class="built_in">super</span>(My_Model, self).__init__()</span><br><span class="line">        <span class="comment"># <span class="doctag">TODO:</span> modify model&#x27;s structure, be aware of dimensions. </span></span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(input_dim, <span class="number">32</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>),</span><br><span class="line">            nn.BatchNorm1d(<span class="number">32</span>),</span><br><span class="line">            nn.Dropout(<span class="number">0.1</span>),</span><br><span class="line"></span><br><span class="line">            nn.Linear(<span class="number">32</span>, <span class="number">16</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>),</span><br><span class="line">            nn.BatchNorm1d(<span class="number">16</span>),</span><br><span class="line">            nn.Dropout(<span class="number">0.1</span>),</span><br><span class="line"></span><br><span class="line">            nn.Linear(<span class="number">16</span>, <span class="number">8</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>),</span><br><span class="line">            nn.BatchNorm1d(<span class="number">8</span>),</span><br><span class="line">            nn.Dropout(<span class="number">0.1</span>),</span><br><span class="line"></span><br><span class="line">            nn.Linear(<span class="number">8</span>, <span class="number">1</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.layers(x)</span><br><span class="line">        x = x.squeeze(<span class="number">1</span>) <span class="comment"># (B, 1) -&gt; (B)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure></p>
-<p>使用sklearn包选择K个最优特征 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> f_regression</span><br><span class="line"></span><br><span class="line">features = pd.read_csv(<span class="string">&#x27;./covid.train.csv&#x27;</span>)</span><br><span class="line">x_data, y_data = features.iloc[:,:-<span class="number">1</span>], features.iloc[:,-<span class="number">1</span>]</span><br><span class="line">k = <span class="number">24</span></span><br><span class="line">selector = SelectKBest(score_func=f_regression, k=k)</span><br><span class="line">result = selector.fit(x_data, y_data)</span><br><span class="line">idx = np.argsort(result.scores_)[::-<span class="number">1</span>]</span><br><span class="line">selected_idx = <span class="built_in">list</span>(np.sort(idx[:k]))</span><br></pre></td></tr></table></figure></p>
-<p>改用Adam优化器做梯度下降，并且增加learning rate scheduler
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">5e-4</span>, weight_decay=<span class="number">1e-4</span>) </span><br><span class="line">scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=<span class="number">2</span>, T_mult=<span class="number">2</span>, eta_min=<span class="number">1e-5</span>)</span><br></pre></td></tr></table></figure></p>
-<p>修改部分参数 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;</span><br><span class="line">    <span class="string">&#x27;seed&#x27;</span>: <span class="number">5201314</span>,      <span class="comment"># Your seed number, you can pick your lucky number. :)</span></span><br><span class="line">    <span class="string">&#x27;select_all&#x27;</span>: <span class="literal">False</span>,   <span class="comment"># Whether to use all features.</span></span><br><span class="line">    <span class="string">&#x27;valid_ratio&#x27;</span>: <span class="number">0.2</span>,   <span class="comment"># validation_size = train_size * valid_ratio</span></span><br><span class="line">    <span class="string">&#x27;n_epochs&#x27;</span>: <span class="number">5000</span>,     <span class="comment"># Number of epochs.            </span></span><br><span class="line">    <span class="string">&#x27;batch_size&#x27;</span>: <span class="number">256</span>, </span><br><span class="line">    <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">1e-5</span>,              </span><br><span class="line">    <span class="string">&#x27;early_stop&#x27;</span>: <span class="number">500</span>,    <span class="comment"># If model has not improved for this many consecutive epochs, stop training.     </span></span><br><span class="line">    <span class="string">&#x27;save_path&#x27;</span>: <span class="string">&#x27;./models/model.ckpt&#x27;</span>  <span class="comment"># Your model will be saved here.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对数据做归一化 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x_mean, x_std = x_train.mean(axis=<span class="number">0</span>), x_train.std(axis=<span class="number">0</span>)</span><br><span class="line">x_train = (x_train - x_mean) / x_std</span><br><span class="line">x_valid = (x_valid - x_mean) / x_std</span><br><span class="line">x_test = (x_test - x_mean) / x_std</span><br></pre></td></tr></table></figure></p>
-<p>通过Strong <a
-target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml2022_hw/blob/main/ML2022Spring_HW1_strong.ipynb">完整代码</a></p>
+        
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2023/02/22/pytorch_basic/" target="_self">
+              <a href="/2023/03/03/lhy_ml2022hw2/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -223,7 +209,7 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2023-02-24 00:00:00
+              2023-03-09 15:00:00
             </span>
             
                   <span class="post-categories">
@@ -236,8 +222,8 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
                     </span>
                     
                     <span class="span--category">
-                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/" title="实验">
-                        <b>#</b> 实验
+                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
+                        <b>#</b> 笔记
                       </a>
                     </span>
                     
@@ -252,21 +238,10 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
                       </a>
                     </span>
                     
-                    <span class="span--tag mr-8">
-                      <a href="/tags/PyTorch/" title="PyTorch">
-                        #PyTorch
-                      </a>
-                    </span>
-                    
                   </span>
               
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2023/03/02/lhy_ml2022lec2/" target="_self">
-                <span>Next</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -549,12 +524,12 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20HW1 + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F02%2F24%2Flhy_ml2022hw1%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20Lecture%203%3AImage%20as%20input + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F03%2F09%2Flhy_ml2022lec3%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/02/24/lhy_ml2022hw1/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/03/09/lhy_ml2022lec3/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
