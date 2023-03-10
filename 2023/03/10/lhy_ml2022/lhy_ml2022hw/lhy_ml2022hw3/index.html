@@ -11,7 +11,7 @@
   
   <title>
     
-      李宏毅机器学习 Lecture 3:Image as input 
+      李宏毅机器学习 HW3 
       
       
       |
@@ -156,11 +156,11 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">李宏毅机器学习 Lecture 3:Image as input</div>
+      <div class="post-title">李宏毅机器学习 HW3</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2023-03-09 15:00:00
+          2023-03-10 04:00:00
         </span>
         
               <span class="post-categories">
@@ -173,8 +173,8 @@
                 </span>
                 
                 <span class="span--category">
-                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
-                    <b>#</b> 笔记
+                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/" title="实验">
+                    <b>#</b> 实验
                   </a>
                 </span>
                 
@@ -189,56 +189,24 @@
                   </a>
                 </span>
                 
+                <span class="span--tag mr-8">
+                  <a href="/tags/PyTorch/" title="PyTorch">
+                    #PyTorch
+                  </a>
+                </span>
+                
               </span>
           
       </div>
       <div class="markdown-body">
-        <h3 id="convolutional-neural-network">Convolutional Neural Network</h3>
-<p>卷积神经网络 CNN 常用于影像的任务上</p>
-<p>以image classification图片分类为例</p>
-<p>在做之前往往会把所有图片rescale成同样的大小</p>
-<p>图片可以看作一个三维的tensor（channel数目
-RGB、宽、高），数值表示每个Pixel像素的强度，可以把tensor拉直当作网络的输入</p>
-<p>后一层的neuron只连接前一层的部分neuron，一般为一个矩形区域，层数越深，看到的原始feature的范围越大</p>
-<p>相同的pattern可能出现在不同位置 让一些neuron共享参数
-weight完全一样</p>
-<p>移动步长stride</p>
-<p>超出范围 采用padding方法解决</p>
-<p>经常在卷积后搭配池化操作pooling（常见max pooling、mean
-pooling等）减少运算量，但不是必须的</p>
-<p>最后把neuron拉直接上全连接层、softmax做分类</p>
-<p><strong>CNN is not invariant to scaling and rotation.</strong></p>
-<p>影像任务需要data augmentation（截取放大、旋转等）</p>
-<h3 id="spatial-transformer">Spatial Transformer</h3>
-<p>通过神经网络学习图片的平移、旋转</p>
-<p><span class="math display">\[
-\begin{bmatrix}
-x&#39; \\
-y&#39;
-\end{bmatrix}
-=
-\begin{bmatrix}
-a &amp; b \\
-c &amp; d
-\end{bmatrix}
-\begin{bmatrix}
-x \\
-y
-\end{bmatrix}
-+
-\begin{bmatrix}
-e \\
-f
-\end{bmatrix}
-\]</span></p>
-<p>网络输出<span class="math inline">\(a,b,c,d,e,f\)</span>六个参数</p>
+        
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2023/03/03/lhy_ml2022hw2/" target="_self">
+              <a href="/2023/03/09/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec3/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -247,7 +215,7 @@ f
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2023-03-09 15:00:00
+              2023-03-10 04:00:00
             </span>
             
                   <span class="post-categories">
@@ -260,8 +228,8 @@ f
                     </span>
                     
                     <span class="span--category">
-                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
-                        <b>#</b> 笔记
+                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/" title="实验">
+                        <b>#</b> 实验
                       </a>
                     </span>
                     
@@ -276,6 +244,12 @@ f
                       </a>
                     </span>
                     
+                    <span class="span--tag mr-8">
+                      <a href="/tags/PyTorch/" title="PyTorch">
+                        #PyTorch
+                      </a>
+                    </span>
+                    
                   </span>
               
           </div>
@@ -286,23 +260,6 @@ f
       
     </div>
     
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#convolutional-neural-network"><span class="toc-text">Convolutional Neural Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spatial-transformer"><span class="toc-text">Spatial Transformer</span></a></li></ol>
-      
-    </div>
-  </div>
-
-  
-<script src="/js/catalog.js"></script>
-
-
-
 
     
       <div class="comments-container">
@@ -579,12 +536,12 @@ f
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20Lecture%203%3AImage%20as%20input + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F03%2F09%2Flhy_ml2022lec3%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20HW3 + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F03%2F10%2Flhy_ml2022%2Flhy_ml2022hw%2Flhy_ml2022hw3%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/03/09/lhy_ml2022lec3/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/03/10/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw3/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

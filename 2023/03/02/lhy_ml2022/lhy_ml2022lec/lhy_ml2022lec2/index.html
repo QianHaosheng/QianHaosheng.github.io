@@ -11,7 +11,7 @@
   
   <title>
     
-      李宏毅机器学习 HW1 
+      李宏毅机器学习 Lecture 2:What to do if my network fails to train 
       
       
       |
@@ -156,11 +156,11 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">李宏毅机器学习 HW1</div>
+      <div class="post-title">李宏毅机器学习 Lecture 2:What to do if my network fails to train</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2023-02-24 00:00:00
+          2023-03-02 02:30:00
         </span>
         
               <span class="post-categories">
@@ -173,8 +173,8 @@
                 </span>
                 
                 <span class="span--category">
-                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/" title="实验">
-                    <b>#</b> 实验
+                  <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
+                    <b>#</b> 笔记
                   </a>
                 </span>
                 
@@ -189,32 +189,137 @@
                   </a>
                 </span>
                 
-                <span class="span--tag mr-8">
-                  <a href="/tags/PyTorch/" title="PyTorch">
-                    #PyTorch
-                  </a>
-                </span>
-                
               </span>
           
       </div>
       <div class="markdown-body">
-        <p>修改网络结构，增加层数、Batch Normalization和Dropout
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">My_Model</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, input_dim</span>):</span><br><span class="line">        <span class="built_in">super</span>(My_Model, self).__init__()</span><br><span class="line">        <span class="comment"># <span class="doctag">TODO:</span> modify model&#x27;s structure, be aware of dimensions. </span></span><br><span class="line">        self.layers = nn.Sequential(</span><br><span class="line">            nn.Linear(input_dim, <span class="number">32</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>),</span><br><span class="line">            nn.BatchNorm1d(<span class="number">32</span>),</span><br><span class="line">            nn.Dropout(<span class="number">0.1</span>),</span><br><span class="line"></span><br><span class="line">            nn.Linear(<span class="number">32</span>, <span class="number">16</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>),</span><br><span class="line">            nn.BatchNorm1d(<span class="number">16</span>),</span><br><span class="line">            nn.Dropout(<span class="number">0.1</span>),</span><br><span class="line"></span><br><span class="line">            nn.Linear(<span class="number">16</span>, <span class="number">8</span>),</span><br><span class="line">            nn.LeakyReLU(<span class="number">0.2</span>),</span><br><span class="line">            nn.BatchNorm1d(<span class="number">8</span>),</span><br><span class="line">            nn.Dropout(<span class="number">0.1</span>),</span><br><span class="line"></span><br><span class="line">            nn.Linear(<span class="number">8</span>, <span class="number">1</span>)</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">        x = self.layers(x)</span><br><span class="line">        x = x.squeeze(<span class="number">1</span>) <span class="comment"># (B, 1) -&gt; (B)</span></span><br><span class="line">        <span class="keyword">return</span> x</span><br></pre></td></tr></table></figure></p>
-<p>使用sklearn包选择K个最优特征 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectKBest</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> f_regression</span><br><span class="line"></span><br><span class="line">features = pd.read_csv(<span class="string">&#x27;./covid.train.csv&#x27;</span>)</span><br><span class="line">x_data, y_data = features.iloc[:,:-<span class="number">1</span>], features.iloc[:,-<span class="number">1</span>]</span><br><span class="line">k = <span class="number">24</span></span><br><span class="line">selector = SelectKBest(score_func=f_regression, k=k)</span><br><span class="line">result = selector.fit(x_data, y_data)</span><br><span class="line">idx = np.argsort(result.scores_)[::-<span class="number">1</span>]</span><br><span class="line">selected_idx = <span class="built_in">list</span>(np.sort(idx[:k]))</span><br></pre></td></tr></table></figure></p>
-<p>改用Adam优化器做梯度下降，并且增加learning rate scheduler
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">optimizer = torch.optim.Adam(model.parameters(), lr=<span class="number">5e-4</span>, weight_decay=<span class="number">1e-4</span>) </span><br><span class="line">scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=<span class="number">2</span>, T_mult=<span class="number">2</span>, eta_min=<span class="number">1e-5</span>)</span><br></pre></td></tr></table></figure></p>
-<p>修改部分参数 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;</span><br><span class="line">    <span class="string">&#x27;seed&#x27;</span>: <span class="number">5201314</span>,      <span class="comment"># Your seed number, you can pick your lucky number. :)</span></span><br><span class="line">    <span class="string">&#x27;select_all&#x27;</span>: <span class="literal">False</span>,   <span class="comment"># Whether to use all features.</span></span><br><span class="line">    <span class="string">&#x27;valid_ratio&#x27;</span>: <span class="number">0.2</span>,   <span class="comment"># validation_size = train_size * valid_ratio</span></span><br><span class="line">    <span class="string">&#x27;n_epochs&#x27;</span>: <span class="number">5000</span>,     <span class="comment"># Number of epochs.            </span></span><br><span class="line">    <span class="string">&#x27;batch_size&#x27;</span>: <span class="number">256</span>, </span><br><span class="line">    <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">1e-5</span>,              </span><br><span class="line">    <span class="string">&#x27;early_stop&#x27;</span>: <span class="number">500</span>,    <span class="comment"># If model has not improved for this many consecutive epochs, stop training.     </span></span><br><span class="line">    <span class="string">&#x27;save_path&#x27;</span>: <span class="string">&#x27;./models/model.ckpt&#x27;</span>  <span class="comment"># Your model will be saved here.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对数据做归一化 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x_mean, x_std = x_train.mean(axis=<span class="number">0</span>), x_train.std(axis=<span class="number">0</span>)</span><br><span class="line">x_train = (x_train - x_mean) / x_std</span><br><span class="line">x_valid = (x_valid - x_mean) / x_std</span><br><span class="line">x_test = (x_test - x_mean) / x_std</span><br></pre></td></tr></table></figure></p>
-<p>通过Strong <a
-target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml2022_hw/blob/main/ML2022Spring_HW1_strong.ipynb">完整代码</a></p>
+        <h3 id="训练模型一般流程">训练模型一般流程</h3>
+<p>先检查训练集loss</p>
+<ul>
+<li>训练集loss大，2种可能
+<ul>
+<li>模型偏差model bias大，增加模型复杂性</li>
+<li>optimization没做好（可能发生简化的模型比原模型效果好）</li>
+</ul></li>
+<li>训练集loss小，检查测试集loss
+<ul>
+<li>测试集loss大，2种可能
+<ul>
+<li><p>过拟合overfitting</p>
+<p>增加训练数据，或数据增强data augmentation（左右翻转、截取图片等）</p>
+<p>增加模型限制，减少模型复杂性（更少的参数parameter，更少的特征feature，提前终止early
+stopping，正则化regularization，dropout）</p></li>
+<li><p>训练集和测试集不同分布mismatch</p></li>
+</ul></li>
+<li>测试集loss小（期望结果）</li>
+</ul></li>
+</ul>
+<h3 id="临界点">临界点</h3>
+<p>临界点critical point：局部最低/高local min/max 鞍点saddle point</p>
+<p>泰勒级数近似Taylor Series Approximation</p>
+<p>用附近的<span class="math inline">\(\theta&#39;\)</span>近似表示<span
+class="math inline">\(L(\theta) \approx
+L(\theta&#39;)+(\theta-\theta&#39;)^{T}g+\frac{1}{2}(\theta-\theta&#39;)^{T}H(\theta-\theta&#39;)\)</span></p>
+<p><span class="math inline">\(g\)</span>表示梯度是个向量，<span
+class="math inline">\(g=\nabla L(\theta&#39;)\)</span> <span
+class="math inline">\(g_{i}=\frac{\partial L(\theta&#39;)}{\partial
+\theta_{i}}\)</span></p>
+<p><span class="math inline">\(H\)</span>表示Hessian矩阵，<span
+class="math inline">\(H_{ij}=\frac{\partial^{2}}{\partial\theta_{i}\partial\theta_{j}}L(\theta&#39;)\)</span></p>
+<p>在临界点梯度为0，上式中第二项为0，</p>
+<p>对于所有的<span class="math inline">\(v\)</span>，满足<span
+class="math inline">\(v^{T}Hv&gt;0\)</span>，说明<span
+class="math inline">\(L(\theta)&gt;L(\theta&#39;)\)</span>，该点为局部最低（等价于<span
+class="math inline">\(H\)</span>是正定positive
+definite的，所有特征值eigen value为正）</p>
+<p>对于所有的<span class="math inline">\(v\)</span>，满足<span
+class="math inline">\(v^{T}Hv&lt;0\)</span>，说明<span
+class="math inline">\(L(\theta)&lt;L(\theta&#39;)\)</span>，该点为局部最高（等价于<span
+class="math inline">\(H\)</span>是负定negative
+definite的，所有特征值为负）</p>
+<p>部分<span class="math inline">\(v^{T}Hv&gt;0\)</span>，部分<span
+class="math inline">\(v^{T}Hv&lt;0\)</span>，该点为鞍点（特征值有正有负，沿着负特征值的特征向量eigen
+vector的方向更新参数可以继续降低loss）</p>
+<p>实际操作中，因为参数量巨大，在高维空间中很少会有局部最低点</p>
+<h3 id="batch">batch</h3>
+<p>一个epoch划分多个batch，每个batch单独计算loss更新参数</p>
+<p>一次update的速度，没有并行运算情况下小batch更快，有并行运算情况下小batch和大batch（不能太大）接近</p>
+<p>一个epoch的速度，大batch更快</p>
+<p>大batch的梯度更稳定，小batch梯度含噪声</p>
+<p>理论上小batch在optimization时更优</p>
+<h3 id="momentum">momentum</h3>
+<p>动量momentum（考虑之前移动的方向）</p>
+<p>从<span class="math inline">\(\theta^0\)</span>开始</p>
+<p>移动<span class="math inline">\(m^0=0\)</span></p>
+<p>计算梯度<span class="math inline">\(g^0\)</span></p>
+<p>移动<span class="math inline">\(m^1=\lambda m^0-\eta g^0\)</span></p>
+<p>更新参数<span
+class="math inline">\(\theta^1=\theta^0+m^1\)</span></p>
+<p>计算梯度<span class="math inline">\(g^1\)</span></p>
+<p>移动<span class="math inline">\(m^2=\lambda m^1-\eta g^1\)</span></p>
+<p>更新参数<span
+class="math inline">\(\theta^2=\theta^1+m^2\)</span></p>
+<p>依此类推</p>
+<h3 id="adaptive-learning-rate">adaptive learning rate</h3>
+<p>loss变化小不一定说明梯度很小</p>
+<ul>
+<li><p>Root Mean Square 均方根方法 在Adagrad中使用</p>
+<p><span class="math inline">\(\theta_{i}^{t+1} \leftarrow
+\theta_{i}^{t}-\frac{\eta}{\sigma_{i}^{t}}g_{i}^{t}\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{1} \leftarrow
+\theta_{i}^{0}-\frac{\eta}{\sigma_{i}^{0}}g_{i}^{0}\)</span> <span
+class="math inline">\(\sigma_{i}^{0}=\sqrt{(g_{i}^{0})^{2}}\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{2} \leftarrow
+\theta_{i}^{1}-\frac{\eta}{\sigma_{i}^{1}}g_{i}^{1}\)</span> <span
+class="math inline">\(\sigma_{i}^{1}=\sqrt{\frac{1}{2}[(g_{i}^{0})^{2}+(g_{i}^{1})^{2}]}\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{3} \leftarrow
+\theta_{i}^{2}-\frac{\eta}{\sigma_{i}^{2}}g_{i}^{2}\)</span> <span
+class="math inline">\(\sigma_{i}^{2}=\sqrt{\frac{1}{3}[(g_{i}^{0})^{2}+(g_{i}^{1})^{2}+(g_{i}^{2})^{2}]}\)</span></p>
+<p><span class="math inline">\(\vdots\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{t+1} \leftarrow
+\theta_{i}^{t}-\frac{\eta}{\sigma_{i}^{t}}g_{i}^{t}\)</span> <span
+class="math inline">\(\sigma_{i}^{t}=\sqrt{\frac{1}{t+1}\sum_{j=0}^{t}(g_{i}^{j})^{2}}\)</span></p></li>
+<li><p>RMSProp</p>
+<p><span class="math inline">\(\theta_{i}^{t+1} \leftarrow
+\theta_{i}^{t}-\frac{\eta}{\sigma_{i}^{t}}g_{i}^{t}\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{1} \leftarrow
+\theta_{i}^{0}-\frac{\eta}{\sigma_{i}^{0}}g_{i}^{0}\)</span> <span
+class="math inline">\(\sigma_{i}^{0}=\sqrt{(g_{i}^{0})^{2}}\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{2} \leftarrow
+\theta_{i}^{1}-\frac{\eta}{\sigma_{i}^{1}}g_{i}^{1}\)</span> <span
+class="math inline">\(\sigma_{i}^{1}=\sqrt{\alpha(\sigma_{i}^{0})^2+(1-\alpha)(g_{i}^{1})^{2}}\
+(0 \lt \alpha \lt 1)\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{3} \leftarrow
+\theta_{i}^{2}-\frac{\eta}{\sigma_{i}^{2}}g_{i}^{2}\)</span> <span
+class="math inline">\(\sigma_{i}^{2}=\sqrt{\alpha(\sigma_{i}^{1})^2+(1-\alpha)(g_{i}^{2})^{2}}\)</span></p>
+<p><span class="math inline">\(\vdots\)</span></p>
+<p><span class="math inline">\(\theta_{i}^{t+1} \leftarrow
+\theta_{i}^{t}-\frac{\eta}{\sigma_{i}^{t}}g_{i}^{t}\)</span> <span
+class="math inline">\(\sigma_{i}^{t}=\sqrt{\alpha(\sigma_{i}^{t-1})^2+(1-\alpha)(g_{i}^{t})^{2}}\)</span></p></li>
+<li><p>Adam: RMSProp + Momentum</p></li>
+</ul>
+<p>learning rate scheduling <span class="math inline">\(\theta_{i}^{t+1}
+\leftarrow
+\theta_{i}^{t}-\frac{\eta^{t}}{\sigma_{i}^{t}}g_{i}^{t}\)</span></p>
+<ul>
+<li>learning rate decay 随时间减少学习率</li>
+<li>warm up 先增加后减少</li>
+</ul>
+<h3 id="batch-normalization">batch normalization</h3>
+<p>feature normalization 特征归一化</p>
+<p>对所有样本的某一维做归一化 <span class="math inline">\(\tilde{x_{i}}
+\leftarrow \frac{x_{i}-m_{i}}{\sigma_{i}}\)</span></p>
+<p>使得均值为0，方差为1</p>
+<p>同理，在网络内部也可以进行归一化</p>
+<p>如果激活函数为Sigmoid，一般在前面做归一化，如果激活函数为ReLU，一般在后面做归一化，并在Dropout之前</p>
+<p>测试过程中，BN层一般使用训练集的均值和标准差</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2023/02/22/pytorch_basic/" target="_self">
+              <a href="/2023/02/24/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw1/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -223,7 +328,7 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2023-02-24 00:00:00
+              2023-03-02 02:30:00
             </span>
             
                   <span class="post-categories">
@@ -236,8 +341,8 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
                     </span>
                     
                     <span class="span--category">
-                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/" title="实验">
-                        <b>#</b> 实验
+                      <a href="/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E7%AC%94%E8%AE%B0/" title="笔记">
+                        <b>#</b> 笔记
                       </a>
                     </span>
                     
@@ -252,18 +357,12 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
                       </a>
                     </span>
                     
-                    <span class="span--tag mr-8">
-                      <a href="/tags/PyTorch/" title="PyTorch">
-                        #PyTorch
-                      </a>
-                    </span>
-                    
                   </span>
               
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2023/03/02/lhy_ml2022lec2/" target="_self">
+              <a href="/2023/03/03/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw2/" target="_self">
                 <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -273,6 +372,23 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E4%B8%80%E8%88%AC%E6%B5%81%E7%A8%8B"><span class="toc-text">训练模型一般流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%B4%E7%95%8C%E7%82%B9"><span class="toc-text">临界点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#batch"><span class="toc-text">batch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#momentum"><span class="toc-text">momentum</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#adaptive-learning-rate"><span class="toc-text">adaptive learning rate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#batch-normalization"><span class="toc-text">batch normalization</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">
@@ -549,12 +665,12 @@ target="_blank" rel="noopener" href="https://github.com/QianHaosheng/lihongyi_ml
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20HW1 + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F02%2F24%2Flhy_ml2022hw1%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%20Lecture%202%3AWhat%20to%20do%20if%20my%20network%20fails%20to%20train + '&url=' + http%3A%2F%2Fexample.com%2F2023%2F03%2F02%2Flhy_ml2022%2Flhy_ml2022lec%2Flhy_ml2022lec2%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/02/24/lhy_ml2022hw1/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2023/03/02/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec2/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

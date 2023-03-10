@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-03-09T19:55:13.845Z</updated>
+  <updated>2023-03-10T17:47:24.673Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,9 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>李宏毅机器学习 HW3</title>
+    <link href="http://example.com/2023/03/10/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw3/"/>
+    <id>http://example.com/2023/03/10/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw3/</id>
+    <published>2023-03-09T20:00:00.000Z</published>
+    <updated>2023-03-10T17:47:24.673Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+</summary>
+        
+      
+    
+    
+    
+    <category term="李宏毅机器学习" scheme="http://example.com/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="实验" scheme="http://example.com/categories/%E6%9D%8E%E5%AE%8F%E6%AF%85%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="深度学习" scheme="http://example.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="PyTorch" scheme="http://example.com/tags/PyTorch/"/>
+    
+  </entry>
+  
+  <entry>
     <title>李宏毅机器学习 Lecture 3:Image as input</title>
-    <link href="http://example.com/2023/03/09/lhy_ml2022lec3/"/>
-    <id>http://example.com/2023/03/09/lhy_ml2022lec3/</id>
+    <link href="http://example.com/2023/03/09/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec3/"/>
+    <id>http://example.com/2023/03/09/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec3/</id>
     <published>2023-03-09T07:00:00.000Z</published>
     <updated>2023-03-09T19:55:13.845Z</updated>
     
@@ -47,8 +77,8 @@
   
   <entry>
     <title>李宏毅机器学习 HW2</title>
-    <link href="http://example.com/2023/03/03/lhy_ml2022hw2/"/>
-    <id>http://example.com/2023/03/03/lhy_ml2022hw2/</id>
+    <link href="http://example.com/2023/03/03/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw2/"/>
+    <id>http://example.com/2023/03/03/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw2/</id>
     <published>2023-03-02T18:30:00.000Z</published>
     <updated>2023-03-06T09:44:17.619Z</updated>
     
@@ -76,8 +106,8 @@
   
   <entry>
     <title>李宏毅机器学习 Lecture 2:What to do if my network fails to train</title>
-    <link href="http://example.com/2023/03/02/lhy_ml2022lec2/"/>
-    <id>http://example.com/2023/03/02/lhy_ml2022lec2/</id>
+    <link href="http://example.com/2023/03/02/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec2/"/>
+    <id>http://example.com/2023/03/02/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec2/</id>
     <published>2023-03-01T18:30:00.000Z</published>
     <updated>2023-03-02T18:35:59.480Z</updated>
     
@@ -108,18 +138,17 @@
   
   <entry>
     <title>李宏毅机器学习 HW1</title>
-    <link href="http://example.com/2023/02/24/lhy_ml2022hw1/"/>
-    <id>http://example.com/2023/02/24/lhy_ml2022hw1/</id>
+    <link href="http://example.com/2023/02/24/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw1/"/>
+    <id>http://example.com/2023/02/24/lhy_ml2022/lhy_ml2022hw/lhy_ml2022hw1/</id>
     <published>2023-02-23T16:00:00.000Z</published>
-    <updated>2023-03-06T09:44:27.286Z</updated>
+    <updated>2023-03-10T07:05:23.025Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;修改网络结构，增加层数、Batch Normalization和Dropout
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
+    <summary type="html">&lt;p&gt;通过Strong</summary>
         
       
     
@@ -138,10 +167,10 @@
   
   <entry>
     <title>PyTorch基本操作</title>
-    <link href="http://example.com/2023/02/22/pytorch_basic/"/>
-    <id>http://example.com/2023/02/22/pytorch_basic/</id>
+    <link href="http://example.com/2023/02/22/lhy_ml2022/lhy_ml2022lec/pytorch_basic/"/>
+    <id>http://example.com/2023/02/22/lhy_ml2022/lhy_ml2022lec/pytorch_basic/</id>
     <published>2023-02-22T12:00:00.000Z</published>
-    <updated>2023-03-09T18:07:16.750Z</updated>
+    <updated>2023-03-10T17:45:02.276Z</updated>
     
     
       
@@ -174,10 +203,10 @@
   
   <entry>
     <title>李宏毅机器学习 Lecture 1:Introduction of Deep Learning</title>
-    <link href="http://example.com/2023/02/20/lhy_ml2022lec1/"/>
-    <id>http://example.com/2023/02/20/lhy_ml2022lec1/</id>
+    <link href="http://example.com/2023/02/20/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec1/"/>
+    <id>http://example.com/2023/02/20/lhy_ml2022/lhy_ml2022lec/lhy_ml2022lec1/</id>
     <published>2023-02-20T08:00:00.000Z</published>
-    <updated>2023-03-02T08:28:20.405Z</updated>
+    <updated>2023-03-09T20:03:57.761Z</updated>
     
     
       
